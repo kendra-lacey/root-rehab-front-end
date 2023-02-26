@@ -3,6 +3,14 @@
 
 
 /* ---------===== auth models =====--------- */
+export interface Plant {
+  id: number;
+  name: string;
+  photo: string;
+  profileId: number;
+  createdAt: string;
+  updatedAt: string;
+}
 
 export interface Profile {
   name: string;
@@ -10,6 +18,7 @@ export interface Profile {
   id: number;
   createdAt: string;
   updatedAt: string;
+  plantscreated: Plant []
 }
 
 export interface User {
@@ -20,3 +29,5 @@ export interface User {
   createdAt: string;
   updatedAt: string;
 }
+
+
