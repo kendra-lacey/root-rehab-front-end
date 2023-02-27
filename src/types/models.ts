@@ -6,7 +6,7 @@
 export interface Plant {
   id: number;
   name: string;
-  photo: string;
+  photo?: string;
   profileId: number;
   createdAt: string;
   updatedAt: string;
