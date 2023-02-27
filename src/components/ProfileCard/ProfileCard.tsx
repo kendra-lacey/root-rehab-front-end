@@ -4,6 +4,9 @@ import defaultPic from '../../assets/icons/profile.png'
 // types
 import { Profile } from '../../types/models'
 
+//components
+import PlantCard from '../PlantCard/PlantCard'
+
 interface ProfileCardProps {
   profile : Profile;
 }
@@ -18,6 +21,8 @@ const ProfileCard = (props: ProfileCardProps): JSX.Element => {
     <article>
       <img src={profilePic} alt={`${profile.name}'s avatar'`} />
       <h1>{profile.name}</h1>
+
+      {/* <PlantCard {...props} /> */}
     </article>
   )
 }
