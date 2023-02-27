@@ -5,6 +5,9 @@
 html,
 body {
   margin: 0;
+  background-image: url("./assets/images/mostera.jpg");
+  background-size: cover;
+  height: 100vh;
   background-color: var(--background);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -14,7 +17,7 @@ body {
   --outline: #ffffff;
   --background: #f2f4f8;
   --border: rgb(220, 220, 220);
-  --card-background: rgb(255, 255, 255);
+  --card-background: rgb(255, 255, 255, 0.8);
 }
 
 main {
@@ -128,9 +131,31 @@ article::before {
 .list {
   min-height: fit-content;
   gap: 14px;
-  display: grid;
+  display: flex;
+  padding: 20px;
+}
+
+.list img {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.plantcard {
+  min-height: fit-content;
+  gap: 10px;
+  display: flex;
   padding: 20px;
   grid-template-columns: repeat(1, 1fr);
+}
+
+.plantcard img {
+  width: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
 }
 
 @media only screen and (min-width: 900px) {

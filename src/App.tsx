@@ -16,18 +16,21 @@ import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute'
 // services
 import * as authService from './services/authService'
 import * as profileService from './services/profileService'
+import * as plantService from './services/plantService'
 
 // stylesheets
 import './App.css'
 
 // types
-import { User, Profile } from './types/models'
+import { User, Profile,Plant } from './types/models'
+import { CreatePlantFormData } from './types/forms'
 
 function App(): JSX.Element {
   const navigate = useNavigate()
   
   const [user, setUser] = useState<User | null>(authService.getUser())
   const [profiles, setProfiles] = useState<Profile[]>([])
+  const [plants, setPlants] = useState<Plant[]>([])
 
   useEffect((): void => {
     const fetchProfiles = async (): Promise<void> => {
@@ -40,6 +43,30 @@ function App(): JSX.Element {
     }
     user ? fetchProfiles() : setProfiles([])
   },[user])
+
+  useEffect((): void => {
+  const fetchPlants = async (): Promise<void> => {
+    try {
+      const plantData: Plant[] = await plantService.getAllPlants()
+      setPlants(plantData)
+    } catch (error) {
+      console.log(error)
+    }
+  }
+  user ? fetchPlants() : setPlants([])
+},[user]);
+
+  const handleAddPlant = async(formData: CreatePlantFormData): Promise<void> => {
+    try {
+      const updatedProfile = await plantService.createPlant(formData)
+
+      setProfiles(profiles.map((profile) => (
+        profile.id === updatedProfile.id ? updatedProfile : profile
+      )))
+    } catch (error) {
+      console.log(error);
+    }
+  }
 
   const handleLogout = (): void => {
     authService.logout()
@@ -69,7 +96,9 @@ function App(): JSX.Element {
           element={
             <ProtectedRoute user={user}>
               <Profiles
-              profiles= {profiles}  
+              profiles= {profiles}
+              plants={plants}
+              handleAddPlant={handleAddPlant}
               />
             </ProtectedRoute>
           }

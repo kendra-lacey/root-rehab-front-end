@@ -1,21 +1,30 @@
 // types 
-import { Profile } from '../../types/models'
-import { Plant } from '../../types/models'
+import { Profile, Plant } from '../../types/models'
+
+
+//components
+import AddPlantButton from '../AddPlantButton/AddPlantButton'
 
 interface PlantCardProps {
   profile: Profile;
-  plant: Plant;
+  plants: Plant[];
 }
 
 const PlantCard = (props: PlantCardProps): JSX.Element=> {
-  const { profile, plant } = props
+  const { profile, plants } = props
+
+
 
   return (
-    <div>
-    <h2>{plant.name}</h2>
-    <img src={plant.photo} alt={`photo of ${plant.name}`}/>
-    <button>Add plant</button>
-  </div>
+    <div className='plantcard'>
+      {plants.map((plant) => (
+        <div key={plant.id}>
+          <h2>{plant.name}</h2>
+          <img src={plant.photo} alt={`photo of ${plant.name}`}/>
+          <AddPlantButton {...props} />
+        </div>
+      ))}
+    </div>
   )
 }
 

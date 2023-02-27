@@ -18,7 +18,7 @@ export interface Profile {
   id: number;
   createdAt: string;
   updatedAt: string;
-  plantscreated: Plant []
+  plantscreated: Plant[];
 }
 
 export interface User {
