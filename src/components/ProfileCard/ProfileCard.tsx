@@ -20,7 +20,7 @@ interface ProfileCardProps {
 }
 
 const ProfileCard = (props: ProfileCardProps): JSX.Element => {
-  const { profile, user } = props
+  const { profile, user, plants } = props
 
   const [showForm, setShowForm] = useState(false)
   const [showPlants, setShowPlants] = useState(false)
@@ -33,14 +33,16 @@ const ProfileCard = (props: ProfileCardProps): JSX.Element => {
 
   const toggleForm = (): void => setShowForm(!showForm)
   const toggleShowPlants = () => setShowPlants(!showPlants)
+  const matchingPlants = plants.filter((plant) => plant.profileId === profile.id);
 
   if (user && user.profile.id === profile.id){
   return (
     <article>
       <img src={profilePic} alt={`${profile.name}'s avatar'`} />
       <h1>{profile.name}</h1>
-      <button onClick={toggleShowPlants}>View Your Plants</button>
-      {showPlants && <PlantCard {...props} />}
+      <button onClick={toggleShowPlants}>{matchingPlants.length > 0 ? 'View Plants' : "No Plants to Show"}</button>
+      
+      {showPlants && <PlantCard {...props} plants={matchingPlants} />}
       <button className='add' onClick={toggleForm}>Add Plant</button>
         {showForm && <CreatePlantForm {...props} updateMessage={updateMessage} />}
     </article>
@@ -49,8 +51,8 @@ const ProfileCard = (props: ProfileCardProps): JSX.Element => {
     <article>
       <img src={profilePic} alt={`${profile.name}'s avatar'`} />
       <h1>{profile.name}</h1>
-      <button onClick={toggleShowPlants}>View {profile.name}'s Plants</button>
-      {showPlants && <PlantCard {...props} />}
+      <button onClick={toggleShowPlants}>{matchingPlants.length > 0 ? 'View  Plants ' : "No Plants to Show"}</button>
+      {showPlants && <PlantCard {...props} plants={matchingPlants} />}
     </article>
   )
 }

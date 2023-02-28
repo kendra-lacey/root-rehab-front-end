@@ -2,10 +2,6 @@
 import { Profile, Plant, User } from '../../types/models'
 
 
-//services
-import * as plantService from '../../services/plantService'
-// import * as handleDeletePlant from '../../services/plantService'
-
 interface PlantCardProps {
   profile: Profile;
   plants: Plant[];
