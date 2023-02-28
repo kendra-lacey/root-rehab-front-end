@@ -2,7 +2,7 @@
 import { NavLink } from 'react-router-dom'
 
 // assets
-import monstera from '../../assets/monstera.svg'
+import monstera from '../../assets/icons/monstera.png'
 
 // types
 import { User } from '../../types/models'

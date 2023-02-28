@@ -19,8 +19,9 @@ interface ProfileCardProps {
 }
 
 const ProfileCard = (props: ProfileCardProps): JSX.Element => {
-  const { profile, plants, user } = props
+  const { profile, user } = props
 
+  const [showForm, setShowForm] = useState(false)
 
   const [message, setMessage] = useState('')
 
@@ -28,13 +29,16 @@ const ProfileCard = (props: ProfileCardProps): JSX.Element => {
 
   const profilePic = profile.photo ? profile.photo : defaultPic
 
+  const toggleForm = (): void => setShowForm(!showForm)
+
   if (user && user.profile.id === profile.id){
   return (
     <article>
       <img src={profilePic} alt={`${profile.name}'s avatar'`} />
       <h1>{profile.name}</h1>
       <PlantCard {...props} />
-      <CreatePlantForm {...props} updateMessage={updateMessage} />
+      <button className='add' onClick={toggleForm}>Add Plant</button>
+        {showForm && <CreatePlantForm {...props} updateMessage={updateMessage} />}
     </article>
   )} // implicit else...
   return (

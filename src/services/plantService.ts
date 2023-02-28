@@ -2,7 +2,7 @@
 import * as tokenService from './tokenService'
 
 // types
-import { Profile, Plant } from '../types/models'
+import { Plant } from '../types/models'
 import { CreatePlantFormData, PhotoFormData } from '../types/forms'
 
 const BASE_URL = `${import.meta.env.VITE_BACK_END_SERVER_URL}/api/plants`
@@ -29,8 +29,6 @@ async function createPlant (
         photoData.append('photo', photoFormData.photo)
         await addPlantPhoto(photoData, plantId)
     }
-    
-    // return json as Profile
   } catch (error) {
     throw error
   }

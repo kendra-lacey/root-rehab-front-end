@@ -1,6 +1,5 @@
 // types
 import { Profile, Plant, User} from '../../types/models';
-import { CreatePlantFormData } from '../../types/forms';
 
 //components
 import ProfileCard from '../../components/ProfileCard/ProfileCard'

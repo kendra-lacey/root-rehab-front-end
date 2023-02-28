@@ -35,7 +35,7 @@ const Landing = (props: LandingProps): JSX.Element => {
     </header>
     <article>
       <header>
-        <h4>Kendra Lacey</h4>
+        <h2>Kendra Lacey</h2>
         <p>Plant Killer</p>
       </header>
       <p>I am NOT a green-thumb….I found Root Rehab through a friend of mine who also was struggling to keep her plants alive, she said now all of her plants are THRIVING.</p>

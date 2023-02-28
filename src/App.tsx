@@ -23,7 +23,7 @@ import './App.css'
 
 // types
 import { User, Profile,Plant } from './types/models'
-import { CreatePlantFormData, PhotoFormData } from './types/forms'
+
 
 function App(): JSX.Element {
   const navigate = useNavigate()
