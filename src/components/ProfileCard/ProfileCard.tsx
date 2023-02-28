@@ -1,32 +1,51 @@
+// npm packages
+import { useState } from 'react'
+
 // assets 
 import defaultPic from '../../assets/icons/profile.png'
 
 // types
-import { Profile } from '../../types/models'
-import { Plant } from '../../types/models'
-import { CreatePlantFormData } from '../../types/forms'
-
+import { Profile, Plant, User} from '../../types/models';
 
 //components
 import PlantCard from '../PlantCard/PlantCard'
+import CreatePlantForm from '../CreatePlantForm/CreatePlantForm'
 
 interface ProfileCardProps {
   profile : Profile;
+  user:  User | null;
   plants: Plant[];
-  handleAddPlant: (formData: CreatePlantFormData) => void;
+  handleAuthEvt: ()=> void;
 }
 
-
 const ProfileCard = (props: ProfileCardProps): JSX.Element => {
-  const { profile, plants } = props
+  const { profile, plants, user } = props
+  console.log('ProfileCard User: ')
+  console.log(user)
+
+  const [message, setMessage] = useState('')
+
+  const updateMessage = (msg: string): void => setMessage(msg)
 
   const profilePic = profile.photo ? profile.photo : defaultPic
 
+// console.log('User.profile.id: ')
+// console.log(user?.profile.id)
+// console.log('Profile.id: ')
+// console.log(profile.id)
+  if (user && user.profile.id === profile.id){
   return (
     <article>
       <img src={profilePic} alt={`${profile.name}'s avatar'`} />
       <h1>{profile.name}</h1>
-
+      <PlantCard {...props} />
+      <CreatePlantForm {...props} updateMessage={updateMessage} />
+    </article>
+  )} // implicit else...
+  return (
+    <article>
+      <img src={profilePic} alt={`${profile.name}'s avatar'`} />
+      <h1>{profile.name}</h1>
       <PlantCard {...props} />
     </article>
   )

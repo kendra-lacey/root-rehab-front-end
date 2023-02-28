@@ -1,5 +1,20 @@
+
 .container {
+  width: 100%;
   display: flex;
-  align-items: center;
+  padding: 20px;
+  max-width: 500px;
+  border-radius: 5px;
+  margin-bottom: 50px;
   flex-direction: column;
+  background-color: white;
+  border: 1px solid var(--border);
+  box-shadow: -1px 5px 19px -5px rgba(0, 0, 0, 0.25);
+  -moz-box-shadow: -1px 5px 19px -5px rgba(0, 0, 0, 0.25);
+  -webkit-box-shadow: -1px 5px 19px -5px rgba(0, 0, 0, 0.25);
+}
+
+.container label,
+.container button {
+  width: 100%;
 }

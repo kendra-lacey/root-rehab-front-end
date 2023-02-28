@@ -1,27 +1,28 @@
 // types
-import { Profile } from '../../types/models'
-import { Plant } from '../../types/models'
+import { Profile, Plant, User} from '../../types/models';
+import { CreatePlantFormData } from '../../types/forms';
 
 //components
 import ProfileCard from '../../components/ProfileCard/ProfileCard'
-import { CreatePlantFormData } from '../../types/forms';
-
 
 interface ProfilesProps {
   profiles: Profile[];
   plants: Plant[];
-  handleAddPlant: (formData: CreatePlantFormData) => void;
+  user: User | null;
+  handleAuthEvt: ()=> void;
 }
 const Profiles = (props: ProfilesProps): JSX.Element => {
-    const { profiles, plants } = props
+  const { profiles, plants, user, handleAuthEvt} = props
 
+  console.log('Profile User:')
+  console.log(user)
   if(!profiles.length) return <p>No profiles yet</p>
 
   return (
     
       <main className='list'>
       {profiles.map((profile: Profile) =>
-        <ProfileCard key={profile.id} profile={profile} handleAddPlant={props.handleAddPlant} plants={plants}/>
+        <ProfileCard key={profile.id} profile={profile} user={user} plants={plants} handleAuthEvt={handleAuthEvt}/>
       )}
     </main>
   )

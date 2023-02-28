@@ -2,7 +2,6 @@
 
 export interface CreatePlantFormData {
   name: string;
-  photo: File | null;
 }
 
 /* ---------===== auth forms =====--------- */

@@ -11,9 +11,10 @@ body {
   background-color: var(--background);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  font-family: sofia-pro, sans-serif;
+  font-family: 'Josefin Sans', sans-serif;
+  font-family: 'Yeseva One';
   --primary: #F2B138;
-  --secondary: #81A684;
+  --secondary: #F8C7CC;
   --outline: #ffffff;
   --background: #f2f4f8;
   --border: rgb(220, 220, 220);
@@ -34,27 +35,33 @@ h3 {
 h1 {
   font-size: 24px;
   font-weight: 600;
+  color:#81A684;
+  font-family: 'Yeseva One';
 }
 
 h2 {
   font-size: 20px;
   font-weight: 500;
+  font-family: sans-serif;
 }
 
 h3 {
   font-size: 18px;
   font-weight: 500;
+  font-family: sans-serif;
 }
 
 h4 {
   font-size: 16px;
   font-weight: 500;
   margin-bottom: 2px;
+  font-family: sans-serif;
 }
 
 h5 {
   font-size: 12px;
   font-weight: 500;
+  font-family: sans-serif;
 }
 
 p {
@@ -65,6 +72,7 @@ p {
   line-height: 28px;
   text-align: justify;
   text-align-last: center;
+  font-family: sans-serif;
 }
 
 a {
@@ -153,7 +161,7 @@ article::before {
 .plantcard img {
   width: 80px;
   display: flex;
-  align-items: center;
+  align-self: center;
   justify-content: center;
   cursor: pointer;
 }
@@ -191,6 +199,13 @@ nav {
 
 nav img {
   width: 50px;
+}
+
+Nav .App {
+  color: #81A684;
+  font-size: 35px;
+  -webkit-text-stroke-width: .5px;
+  -webkit-text-stroke-color: black;
 }
 
 nav ul {

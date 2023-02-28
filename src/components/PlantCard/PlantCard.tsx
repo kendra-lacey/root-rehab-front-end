@@ -3,7 +3,7 @@ import { Profile, Plant } from '../../types/models'
 
 
 //components
-import AddPlantButton from '../AddPlantButton/AddPlantButton'
+import CreatePlantForm from '../CreatePlantForm/CreatePlantForm'
 
 interface PlantCardProps {
   profile: Profile;
@@ -11,9 +11,7 @@ interface PlantCardProps {
 }
 
 const PlantCard = (props: PlantCardProps): JSX.Element=> {
-  const { profile, plants } = props
-
-
+  const { plants } = props
 
   return (
     <div className='plantcard'>
@@ -21,7 +19,6 @@ const PlantCard = (props: PlantCardProps): JSX.Element=> {
         <div key={plant.id}>
           <h2>{plant.name}</h2>
           <img src={plant.photo} alt={`photo of ${plant.name}`}/>
-          <AddPlantButton {...props} />
         </div>
       ))}
     </div>

@@ -96,9 +96,10 @@ function App(): JSX.Element {
           element={
             <ProtectedRoute user={user}>
               <Profiles
+              user={user}
               profiles= {profiles}
               plants={plants}
-              handleAddPlant={handleAddPlant}
+              handleAuthEvt={handleAuthEvt}
               />
             </ProtectedRoute>
           }

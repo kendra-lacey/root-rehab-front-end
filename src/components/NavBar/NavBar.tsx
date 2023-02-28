@@ -1,6 +1,9 @@
 // npm modules
 import { NavLink } from 'react-router-dom'
 
+// assets
+import monstera from '../../assets/monstera.svg'
+
 // types
 import { User } from '../../types/models'
 
@@ -11,9 +14,15 @@ interface NavBarProps {
 
 const NavBar = (props: NavBarProps): JSX.Element => {
   const { user, handleLogout } = props
-  
+  console.log('Nav User: ')
+  console.log(user)
   return (
     <nav>
+      <h1 className='App'> Root Rehab </h1>
+      <NavLink to="/">
+        <img src={monstera} alt="Plant" />
+        
+      </NavLink>
       {user ?
         <ul>
           <li>Welcome, {user.name}</li>

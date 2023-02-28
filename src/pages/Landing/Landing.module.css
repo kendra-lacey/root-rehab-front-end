@@ -1,3 +1,6 @@
+.text {
+  color:#81A684;
+}
 
 .container {
   width: 100%;
@@ -15,6 +18,9 @@
   margin-bottom: 60px;
 }
 
+.footer {
+  color:#F8C7CC;
+}
 @media only screen and (max-height: 600px) {
   .container img {
     margin-bottom: 20px;
