@@ -63,9 +63,9 @@ async function getAllPlants(): Promise<Plant[]> {
   }
 }
 
-async function deletePlant(): Promise<void>{
+async function deletePlant(plantId:number): Promise<void>{
   try {
-    await fetch(`${BASE_URL}/delete`, {
+    await fetch(`${BASE_URL}/${plantId}`, {
       method: 'DELETE',
       headers: {
         'Authorization': `Bearer ${tokenService.getToken()}`,

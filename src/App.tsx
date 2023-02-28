@@ -56,21 +56,10 @@ function App(): JSX.Element {
   user ? fetchPlants() : setPlants([])
 },[user]);
 
-  // const handleAddPlant = async(formData: CreatePlantFormData): Promise<void> => {
-  //   try {
-  //     const updatedProfile = await plantService.createPlant(formData, photoFormData)
 
-  //     setProfiles(profiles.map((profile) => (
-  //       profile.id === updatedProfile.id ? updatedProfile : profile
-  //     )))
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // }
-  const handleDeletePlant = async(): Promise<void> => {
-    await plantService.deletePlant()
-    navigate('/')
-  }
+const handleDeletePlant = async(plantId:number): Promise<void> => {
+  await plantService.deletePlant(plantId)
+}
 
   const handleLogout = (): void => {
     authService.logout()

@@ -9,7 +9,7 @@ interface ProfilesProps {
   plants: Plant[];
   user: User | null;
   handleAuthEvt: ()=> void;
-  handleDeletePlant: ()=> void;
+  handleDeletePlant: (plantId:number)=> void;
 }
 const Profiles = (props: ProfilesProps): JSX.Element => {
   const { profiles, plants, user, handleAuthEvt, handleDeletePlant} = props

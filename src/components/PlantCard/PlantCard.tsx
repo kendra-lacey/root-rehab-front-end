@@ -4,19 +4,19 @@ import { Profile, Plant, User } from '../../types/models'
 
 //services
 import * as plantService from '../../services/plantService'
+// import * as handleDeletePlant from '../../services/plantService'
 
 interface PlantCardProps {
   profile: Profile;
   plants: Plant[];
   user:  User | null;
+  handleDeletePlant:(plantId:number)=> void;
 }
 
-const handleDeletePlant = async(): Promise<void> => {
-  await plantService.deletePlant()
-}
+
 
 const PlantCard = (props: PlantCardProps): JSX.Element=> {
-  const { plants, user, profile } = props
+  const { plants, user, profile, handleDeletePlant} = props
 
   return (
     <div className='plantcard'>
@@ -25,7 +25,7 @@ const PlantCard = (props: PlantCardProps): JSX.Element=> {
           <h2>{plant.name}</h2>
           <img src={plant.photo} alt={`photo of ${plant.name}`}/>
           { user && user.profile.id === profile.id &&
-            <button onClick={() => handleDeletePlant()}>
+            <button onClick={() => handleDeletePlant(plant.id)}>
               x
             </button>
           }

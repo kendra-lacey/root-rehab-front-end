@@ -16,7 +16,7 @@ interface ProfileCardProps {
   user:  User | null;
   plants: Plant[];
   handleAuthEvt: ()=> void;
-  handleDeletePlant:()=> void;
+  handleDeletePlant:(plantId:number)=> void;
 }
 
 const ProfileCard = (props: ProfileCardProps): JSX.Element => {
