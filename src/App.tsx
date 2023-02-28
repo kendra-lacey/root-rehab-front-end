@@ -23,7 +23,7 @@ import './App.css'
 
 // types
 import { User, Profile,Plant } from './types/models'
-import { CreatePlantFormData } from './types/forms'
+import { CreatePlantFormData, PhotoFormData } from './types/forms'
 
 function App(): JSX.Element {
   const navigate = useNavigate()
@@ -56,17 +56,17 @@ function App(): JSX.Element {
   user ? fetchPlants() : setPlants([])
 },[user]);
 
-  const handleAddPlant = async(formData: CreatePlantFormData): Promise<void> => {
-    try {
-      const updatedProfile = await plantService.createPlant(formData)
+  // const handleAddPlant = async(formData: CreatePlantFormData): Promise<void> => {
+  //   try {
+  //     const updatedProfile = await plantService.createPlant(formData, photoFormData)
 
-      setProfiles(profiles.map((profile) => (
-        profile.id === updatedProfile.id ? updatedProfile : profile
-      )))
-    } catch (error) {
-      console.log(error);
-    }
-  }
+  //     setProfiles(profiles.map((profile) => (
+  //       profile.id === updatedProfile.id ? updatedProfile : profile
+  //     )))
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // }
 
   const handleLogout = (): void => {
     authService.logout()

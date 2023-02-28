@@ -20,8 +20,7 @@ interface ProfileCardProps {
 
 const ProfileCard = (props: ProfileCardProps): JSX.Element => {
   const { profile, plants, user } = props
-  console.log('ProfileCard User: ')
-  console.log(user)
+
 
   const [message, setMessage] = useState('')
 
@@ -29,10 +28,6 @@ const ProfileCard = (props: ProfileCardProps): JSX.Element => {
 
   const profilePic = profile.photo ? profile.photo : defaultPic
 
-// console.log('User.profile.id: ')
-// console.log(user?.profile.id)
-// console.log('Profile.id: ')
-// console.log(profile.id)
   if (user && user.profile.id === profile.id){
   return (
     <article>

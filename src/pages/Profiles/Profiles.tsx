@@ -14,8 +14,6 @@ interface ProfilesProps {
 const Profiles = (props: ProfilesProps): JSX.Element => {
   const { profiles, plants, user, handleAuthEvt} = props
 
-  console.log('Profile User:')
-  console.log(user)
   if(!profiles.length) return <p>No profiles yet</p>
 
   return (

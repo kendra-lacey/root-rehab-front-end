@@ -14,8 +14,7 @@ interface NavBarProps {
 
 const NavBar = (props: NavBarProps): JSX.Element => {
   const { user, handleLogout } = props
-  console.log('Nav User: ')
-  console.log(user)
+
   return (
     <nav>
       <h1 className='App'> Root Rehab </h1>
