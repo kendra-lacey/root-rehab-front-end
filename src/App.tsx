@@ -67,6 +67,10 @@ function App(): JSX.Element {
   //     console.log(error);
   //   }
   // }
+  const handleDeletePlant = async(): Promise<void> => {
+    await plantService.deletePlant()
+    navigate('/')
+  }
 
   const handleLogout = (): void => {
     authService.logout()
@@ -100,6 +104,7 @@ function App(): JSX.Element {
               profiles= {profiles}
               plants={plants}
               handleAuthEvt={handleAuthEvt}
+              handleDeletePlant={handleDeletePlant}
               />
             </ProtectedRoute>
           }

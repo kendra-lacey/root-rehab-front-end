@@ -9,9 +9,10 @@ interface ProfilesProps {
   plants: Plant[];
   user: User | null;
   handleAuthEvt: ()=> void;
+  handleDeletePlant: ()=> void;
 }
 const Profiles = (props: ProfilesProps): JSX.Element => {
-  const { profiles, plants, user, handleAuthEvt} = props
+  const { profiles, plants, user, handleAuthEvt, handleDeletePlant} = props
 
   if(!profiles.length) return <p>No profiles yet</p>
 
@@ -19,7 +20,7 @@ const Profiles = (props: ProfilesProps): JSX.Element => {
     
       <main className='list'>
       {profiles.map((profile: Profile) =>
-        <ProfileCard key={profile.id} profile={profile} user={user} plants={plants} handleAuthEvt={handleAuthEvt}/>
+        <ProfileCard key={profile.id} profile={profile} user={user} plants={plants} handleAuthEvt={handleAuthEvt} handleDeletePlant={handleDeletePlant}/>
       )}
     </main>
   )

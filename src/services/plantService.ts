@@ -63,5 +63,18 @@ async function getAllPlants(): Promise<Plant[]> {
   }
 }
 
+async function deletePlant(): Promise<void>{
+  try {
+    await fetch(`${BASE_URL}/delete`, {
+      method: 'DELETE',
+      headers: {
+        'Authorization': `Bearer ${tokenService.getToken()}`,
+      }
+    })
+  } catch (error) {
+    throw error
+  }
+}
 
-export { createPlant,addPlantPhoto, getAllPlants }
+
+export { createPlant,addPlantPhoto, getAllPlants,deletePlant }
