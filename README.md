@@ -7,7 +7,7 @@ A PERN stack app that allows users to upload photos of their dying plants and ge
 
 ---
 ## Getting Started 
- ## **[ Click here to use Root Rehab](https://main--cosmic-cue.netlify.app/)**<br>
+ ## **[ Click here to use Root Rehab](https://root-rehab.netlify.app/)**<br>
  Once you have navigated to the app, create an account and add some plants to your profile<br>
 
 **[Click to view Planning Materials](https://trello.com/b/iokApfA4/root-rehab)** 
@@ -39,8 +39,8 @@ Icon by <a href="https://freeicons.io/profile/205927">Flatart</a> on <a href="ht
 Icon by <a href="https://freeicons.io/profile/135331">Chanut is Industries</a> on <a href="https://freeicons.io">freeicons.io</a><br>
 Background Photo by <a href="https://unsplash.com/@gilleslambert?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Gilles Lambert<a> on <a href="https://unsplash.com/photos/mSK5nNsAsLY?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
   
-**[ Click here to use Root Rehab](https://main--cosmic-cue.netlify.app/)**
-![](/src/assets/monstera.svg)
+**[ Click here to use Root Rehab](https://root-rehab.netlify.app/)**
+![](./public/monstera.svg)
 
 
 
