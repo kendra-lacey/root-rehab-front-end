@@ -3,7 +3,10 @@
 export interface CreatePlantFormData {
   name: string;
 }
-
+export interface HealthManagerFormData {
+  value: number;
+  plantId: number;
+}
 /* ---------===== auth forms =====--------- */
 
 export interface LoginFormData {

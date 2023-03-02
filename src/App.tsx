@@ -18,11 +18,14 @@ import * as authService from './services/authService'
 import * as profileService from './services/profileService'
 import * as plantService from './services/plantService'
 
+
 // stylesheets
 import './App.css'
 
 // types
 import { User, Profile,Plant } from './types/models'
+import { HealthManagerFormData } from './types/forms'
+
 
 
 function App(): JSX.Element {
@@ -31,6 +34,8 @@ function App(): JSX.Element {
   const [user, setUser] = useState<User | null>(authService.getUser())
   const [profiles, setProfiles] = useState<Profile[]>([])
   const [plants, setPlants] = useState<Plant[]>([])
+ 
+  
 
   useEffect((): void => {
     const fetchProfiles = async (): Promise<void> => {
@@ -57,9 +62,13 @@ function App(): JSX.Element {
 },[user]);
 
 
-const handleDeletePlant = async(plantId:number): Promise<void> => {
+const handleDeletePlant = async(plantId: number): Promise<void> => {
   await plantService.deletePlant(plantId)
+  const updatedPlants = plants.filter((plant) => plant.id !== plantId);
+    setPlants(updatedPlants);
 }
+
+
 
   const handleLogout = (): void => {
     authService.logout()
@@ -69,7 +78,9 @@ const handleDeletePlant = async(plantId:number): Promise<void> => {
 
   const handleAuthEvt = (): void => {
     setUser(authService.getUser())
+    navigate('/')
   }
+
 
   return (
     <>

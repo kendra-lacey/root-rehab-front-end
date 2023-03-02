@@ -1,6 +1,10 @@
 // types 
 import { Profile, Plant, User } from '../../types/models'
 
+//components
+
+
+
 
 interface PlantCardProps {
   profile: Profile;

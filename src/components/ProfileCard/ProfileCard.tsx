@@ -11,8 +11,9 @@ import { Profile, Plant, User} from '../../types/models';
 import PlantCard from '../PlantCard/PlantCard'
 import CreatePlantForm from '../CreatePlantForm/CreatePlantForm'
 
+
 interface ProfileCardProps {
-  profile : Profile;
+  profile: Profile
   user:  User | null;
   plants: Plant[];
   handleAuthEvt: ()=> void;
@@ -42,7 +43,7 @@ const ProfileCard = (props: ProfileCardProps): JSX.Element => {
       <h1>{profile.name}</h1>
       <button onClick={toggleShowPlants}>{matchingPlants.length > 0 ? 'View Plants' : "No Plants to Show"}</button>
       
-      {showPlants && <PlantCard {...props} plants={matchingPlants} />}
+      {showPlants && <PlantCard {...props}/>}
       <button className='add' onClick={toggleForm}>Add Plant</button>
         {showForm && <CreatePlantForm {...props} updateMessage={updateMessage} />}
     </article>

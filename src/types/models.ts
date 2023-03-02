@@ -3,6 +3,15 @@
 
 
 /* ---------===== auth models =====--------- */
+export interface Health {
+  id: number;
+  value: number;
+  plantId: number;
+  userId: number;
+  createdAt: string;
+  updatedAt: string;
+}
+
 export interface Plant {
   id: number;
   name: string;
@@ -10,6 +19,7 @@ export interface Plant {
   profileId: number;
   createdAt: string;
   updatedAt: string;
+  healthRecords: Health[];
 }
 
 export interface Profile {
