@@ -44,7 +44,7 @@ const Landing = (props: LandingProps): JSX.Element => {
   </section>
  
   <footer className={styles.footer}>
-    <p>© 2022 ROOT REHAB RIGHTS RESERVED</p>
+    <p>© 2023 ROOT REHAB RIGHTS RESERVED</p>
   </footer>
 </main>
 
