@@ -14,32 +14,17 @@
 }
 
 .container img {
-  width: 100% !important;
-  margin-bottom: 60px !important;
-  text-align: center !important;
-  align-self: center !important;
-  display: block !important;
+  width: 100% ;
+  margin-bottom: 20px ;
+  text-align: center ;
+  align-self: center ;
+  display: block ;
 }
 
 .container section{
   width: 100%;
 }
-article {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  height: fit-content;
-  width: 100%;
-  position: relative;
-  padding: 36px;
-  border-radius: 5px;
-  border: 1px solid var(--border);
-  background-color: var(--card-background);
-  box-shadow: -1px 5px 19px -5px rgba(0, 0, 0, 0.25);
-  -moz-box-shadow: -1px 5px 19px -5px rgba(0, 0, 0, 0.25);
-  -webkit-box-shadow: -1px 5px 19px -5px rgba(0, 0, 0, 0.25);
-}
+
 
 .footer {
   color:#F8C7CC;

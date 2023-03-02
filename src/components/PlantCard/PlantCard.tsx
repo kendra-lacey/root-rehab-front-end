@@ -19,11 +19,13 @@ const PlantCard = (props: PlantCardProps): JSX.Element=> {
   const { plants, user, profile, handleDeletePlant} = props
 
   return (
-    <div className='plantcard'>
+    <div>
       {plants.map((plant) => (
         <div key={plant.id}>
           <h2>{plant.name}</h2>
-          <img src={plant.photo} alt={`photo of ${plant.name}`}/>
+          <section className='plantimages'>
+          <img className='plant' src={plant.photo} alt={`photo of ${plant.name}`}/>
+          </section>
           { user && user.profile.id === profile.id &&
             <button onClick={() => handleDeletePlant(plant.id)}>
               x

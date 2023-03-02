@@ -18,9 +18,7 @@ const Landing = (props: LandingProps): JSX.Element => {
 
   return (
     <main className={styles.container}>
-  <section>
     <img src={ PlantPic } alt="plants" />
-  </section>
   <section className={styles.about}>
     <header>
       <h1 className={styles.text}>ABOUT US</h1>
@@ -40,7 +38,7 @@ const Landing = (props: LandingProps): JSX.Element => {
       </header>
       <p>I am NOT a green-thumb….I found Root Rehab through a friend of mine who also was struggling to keep her plants alive, she said now all of her plants are THRIVING.</p>
       <footer>
-        <img src={ Stars} alt=" 5 stars " />
+        <img src={ Stars } alt=" 5 stars " />
       </footer>
     </article>
   </section>
