@@ -21,12 +21,15 @@ interface PlantCardProps {
 const PlantCard = (props: PlantCardProps): JSX.Element=> {
   const { plants, user, profile, handleDeletePlant} = props
 
+  
   return (
     <div>
       {plants.map((plant) => (
         <div key={plant.id}>
           <h2>{plant.name}</h2>
+          { user && user.profile.id === profile.id &&
           <HealthManager key={plant.id} plant={plant} handleHealth={props.handleHealth}/>
+          }
           <section className='plantimages'>
           <img className='plant' src={plant.photo} alt={`photo of ${plant.name}`}/>
           </section>
