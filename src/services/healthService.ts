@@ -5,7 +5,7 @@ import * as tokenService from './tokenService'
 import { Plant } from '../types/models'
 import { HealthManagerFormData } from '../types/forms'
 
-const BASE_URL = `${import.meta.env.VITE_BACK_END_SERVER_URL}/api/votes`
+const BASE_URL = `${import.meta.env.VITE_BACK_END_SERVER_URL}/api/health`
 
 async function setHealth(formData: HealthManagerFormData): Promise<Plant> {
 	try {

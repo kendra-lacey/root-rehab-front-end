@@ -16,12 +16,14 @@ const HealthManager = (props: HealthManagerProps): JSX.Element => {
 const { plant, handleHealth } = props
 
 const ratingOptions: [ 1, 2, 3, 4, 5 ] = [1, 2, 3, 4, 5 ]
-const healthCount = plant.healthRecords.length
+// const healthCount = plant.healthRecords.length
+const healthCount = plant.healthRecords ? plant.healthRecords.length : 0
 let healthSum = 0
 
-plant.healthRecords.forEach(health => healthSum =+ health.value)
-
-const plantRating = healthCount ? healthSum / healthCount : 1
+if (plant.healthRecords){
+  plant.healthRecords.forEach(health => healthSum += health.value)
+}
+const plantRating = plant.healthRecords && healthSum > 0 ? healthSum / healthCount : 0
 
 const handleClick = (evt: React.MouseEvent<HTMLImageElement>): void => {
   const newValue = parseInt(evt.currentTarget.id)
@@ -35,6 +37,7 @@ const handleClick = (evt: React.MouseEvent<HTMLImageElement>): void => {
         <img
         id={rating.toString()}
         key={rating}
+        onClick={handleClick}
         src={rating <= plantRating ? heart : noHeart}
         alt="Heart Symbol"
         />
