@@ -6,6 +6,7 @@ import defaultPic from '../../assets/icons/profile.png'
 
 // types
 import { Profile, Plant, User} from '../../types/models';
+import { HealthManagerFormData } from '../../types/forms';
 
 //components
 import PlantCard from '../PlantCard/PlantCard'
@@ -18,6 +19,7 @@ interface ProfileCardProps {
   plants: Plant[];
   handleAuthEvt: ()=> void;
   handleDeletePlant:(plantId:number)=> void;
+  handleHealth: (formData: HealthManagerFormData) => void;
 }
 
 const ProfileCard = (props: ProfileCardProps): JSX.Element => {
@@ -45,7 +47,9 @@ const ProfileCard = (props: ProfileCardProps): JSX.Element => {
       
       {showPlants && <PlantCard {...props}/>}
       <button className='add' onClick={toggleForm}>Add Plant</button>
-        {showForm && <CreatePlantForm {...props} updateMessage={updateMessage} />}
+        {showForm && <CreatePlantForm {...props} updateMessage={updateMessage} 
+        handleHealth={props.handleHealth}
+        />}
     </article>
   )} // implicit else...
   return (
@@ -53,7 +57,8 @@ const ProfileCard = (props: ProfileCardProps): JSX.Element => {
       <img src={profilePic} alt={`${profile.name}'s avatar'`} />
       <h1>{profile.name}</h1>
       <button onClick={toggleShowPlants}>{matchingPlants.length > 0 ? 'View  Plants ' : "No Plants to Show"}</button>
-      {showPlants && <PlantCard {...props} plants={matchingPlants} />}
+      {showPlants && <PlantCard {...props} plants={matchingPlants}
+    />}
     </article>
   )
 }

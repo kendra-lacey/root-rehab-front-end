@@ -1,5 +1,6 @@
 // types 
 import { Profile, Plant, User } from '../../types/models'
+import { HealthManagerFormData } from '../../types/forms';
 
 //components
 import HealthManager from '../HealthManager/HealthManager'
@@ -12,6 +13,7 @@ interface PlantCardProps {
   plants: Plant[];
   user:  User | null;
   handleDeletePlant:(plantId:number)=> void;
+  handleHealth: (formData: HealthManagerFormData) => void;
 }
 
 
@@ -24,7 +26,7 @@ const PlantCard = (props: PlantCardProps): JSX.Element=> {
       {plants.map((plant) => (
         <div key={plant.id}>
           <h2>{plant.name}</h2>
-          <HealthManager key={plant.id} plant={plant} />
+          <HealthManager key={plant.id} plant={plant} handleHealth={props.handleHealth}/>
           <section className='plantimages'>
           <img className='plant' src={plant.photo} alt={`photo of ${plant.name}`}/>
           </section>

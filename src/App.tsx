@@ -17,6 +17,7 @@ import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute'
 import * as authService from './services/authService'
 import * as profileService from './services/profileService'
 import * as plantService from './services/plantService'
+import * as healthService from './services/healthService'
 
 
 // stylesheets
@@ -34,7 +35,7 @@ function App(): JSX.Element {
   const [user, setUser] = useState<User | null>(authService.getUser())
   const [profiles, setProfiles] = useState<Profile[]>([])
   const [plants, setPlants] = useState<Plant[]>([])
- 
+
   
 
   useEffect((): void => {
@@ -68,7 +69,17 @@ const handleDeletePlant = async(plantId: number): Promise<void> => {
     setPlants(updatedPlants);
 }
 
+const handleHealth = async(formData: HealthManagerFormData): Promise<void> => {
+  try {
+    const updatedPlant = await healthService.setHealth(formData)
 
+    setPlants(plants.map((plant) => (
+      plant.id === updatedPlant.id ? updatedPlant : plant
+    )))
+  } catch (error) {
+    console.log(error);
+  }
+}
 
   const handleLogout = (): void => {
     authService.logout()
@@ -105,6 +116,7 @@ const handleDeletePlant = async(plantId: number): Promise<void> => {
               plants={plants}
               handleAuthEvt={handleAuthEvt}
               handleDeletePlant={handleDeletePlant}
+              handleHealth={handleHealth}
               />
             </ProtectedRoute>
           }
