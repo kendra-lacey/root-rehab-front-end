@@ -2,6 +2,7 @@
 import { Profile, Plant, User } from '../../types/models'
 
 //components
+import HealthManager from '../HealthManager/HealthManager'
 
 
 
@@ -23,6 +24,7 @@ const PlantCard = (props: PlantCardProps): JSX.Element=> {
       {plants.map((plant) => (
         <div key={plant.id}>
           <h2>{plant.name}</h2>
+          <HealthManager key={plant.id} plant={plant} />
           <section className='plantimages'>
           <img className='plant' src={plant.photo} alt={`photo of ${plant.name}`}/>
           </section>
