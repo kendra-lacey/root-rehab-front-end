@@ -32,7 +32,7 @@ const handleClick = (evt: React.MouseEvent<HTMLImageElement>): void => {
 
 
   return ( 
-    <section>
+    <section className='health'>
       {ratingOptions.map((rating: number): JSX.Element => (
         <img
         id={rating.toString()}

@@ -128,7 +128,10 @@ article * {
   height: 77px;
   background-color: var(--secondary);
 } */
-
+.health>img{
+  width: 30px;
+  height: 30px;
+}
 .list {
   min-height: fit-content;
   gap: 14px;
@@ -148,7 +151,7 @@ article >.plantimages {
   width: 100px;
   height:120px;
   cursor: pointer; */
-  width: 40%;
+  width: 50%;
   height: auto;
   cursor: pointer;
 }
