@@ -1,12 +1,9 @@
 // types 
-import { Profile, Plant, User } from '../../types/models'
+import { Profile, Plant, User, Health } from '../../types/models'
 import { HealthManagerFormData } from '../../types/forms';
 
 //components
 import HealthManager from '../HealthManager/HealthManager'
-
-
-
 
 interface PlantCardProps {
   profile: Profile;
@@ -16,12 +13,8 @@ interface PlantCardProps {
   handleHealth: (formData: HealthManagerFormData) => void;
 }
 
-
-
 const PlantCard = (props: PlantCardProps): JSX.Element=> {
   const { plants, user, profile, handleDeletePlant} = props
-
-  
   return (
     <div>
       {plants.map((plant) => (

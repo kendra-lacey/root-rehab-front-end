@@ -1,5 +1,5 @@
 // types
-import { Profile, Plant, User} from '../../types/models';
+import { Profile, Plant, User, Health} from '../../types/models';
 import { HealthManagerFormData } from '../../types/forms';
 
 

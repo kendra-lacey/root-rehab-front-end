@@ -24,7 +24,7 @@ import * as healthService from './services/healthService'
 import './App.css'
 
 // types
-import { User, Profile,Plant } from './types/models'
+import { User, Profile, Plant } from './types/models'
 import { HealthManagerFormData } from './types/forms'
 
 
@@ -72,7 +72,7 @@ const handleDeletePlant = async(plantId: number): Promise<void> => {
 const handleHealth = async(formData: HealthManagerFormData): Promise<void> => {
   try {
     const updatedPlant = await healthService.setHealth(formData)
-
+    console.log('updatedPlant:', updatedPlant);
     setPlants(plants.map((plant) => (
       plant.id === updatedPlant.id ? updatedPlant : plant
     )))

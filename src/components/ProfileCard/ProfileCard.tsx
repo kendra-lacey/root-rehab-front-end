@@ -5,7 +5,7 @@ import { useState } from 'react'
 import defaultPic from '../../assets/icons/profile.png'
 
 // types
-import { Profile, Plant, User} from '../../types/models';
+import { Profile, Plant, User, Health} from '../../types/models';
 import { HealthManagerFormData } from '../../types/forms';
 
 //components
