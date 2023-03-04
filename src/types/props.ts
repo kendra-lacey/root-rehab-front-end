@@ -9,5 +9,4 @@ import { HealthManagerFormData } from "./forms";
 export interface AuthFormProps {
   handleAuthEvt: () => void;
   updateMessage: (msg: string) => void;
-  handleHealth: (formData: HealthManagerFormData) => void;
 }

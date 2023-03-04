@@ -14,16 +14,17 @@ import CreatePlantForm from '../CreatePlantForm/CreatePlantForm'
 
 
 interface ProfileCardProps {
-  profile: Profile
+  profile: Profile;
   user:  User | null;
   plants: Plant[];
+  health: Health[];
   handleAuthEvt: ()=> void;
   handleDeletePlant:(plantId:number)=> void;
   handleHealth: (formData: HealthManagerFormData) => void;
 }
 
 const ProfileCard = (props: ProfileCardProps): JSX.Element => {
-  const { profile, user, plants } = props
+  const { profile, user, plants, health } = props
 
   const [showForm, setShowForm] = useState(false)
   const [showPlants, setShowPlants] = useState(false)
@@ -45,11 +46,9 @@ const ProfileCard = (props: ProfileCardProps): JSX.Element => {
       <h1>{profile.name}</h1>
       <button onClick={toggleShowPlants}>{matchingPlants.length > 0 ? 'View Plants' : "No Plants to Show"}</button>
       
-      {showPlants && <PlantCard {...props}/>}
+      {showPlants && <PlantCard {...props} />}
       <button className='add' onClick={toggleForm}>Add Plant</button>
-        {showForm && <CreatePlantForm {...props} updateMessage={updateMessage} 
-        handleHealth={props.handleHealth}
-        />}
+      {showForm && <CreatePlantForm {...props} updateMessage={updateMessage}/>}
     </article>
   )} // implicit else...
   return (

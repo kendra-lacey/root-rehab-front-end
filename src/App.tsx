@@ -19,15 +19,12 @@ import * as profileService from './services/profileService'
 import * as plantService from './services/plantService'
 import * as healthService from './services/healthService'
 
-
 // stylesheets
 import './App.css'
 
 // types
-import { User, Profile, Plant } from './types/models'
+import { User, Profile, Plant, Health } from './types/models'
 import { HealthManagerFormData } from './types/forms'
-
-
 
 function App(): JSX.Element {
   const navigate = useNavigate()
@@ -35,8 +32,7 @@ function App(): JSX.Element {
   const [user, setUser] = useState<User | null>(authService.getUser())
   const [profiles, setProfiles] = useState<Profile[]>([])
   const [plants, setPlants] = useState<Plant[]>([])
-
-  
+  const [health, setHealth] = useState<Health[]>([])
 
   useEffect((): void => {
     const fetchProfiles = async (): Promise<void> => {
@@ -114,6 +110,7 @@ const handleHealth = async(formData: HealthManagerFormData): Promise<void> => {
               user={user}
               profiles= {profiles}
               plants={plants}
+              health={health}
               handleAuthEvt={handleAuthEvt}
               handleDeletePlant={handleDeletePlant}
               handleHealth={handleHealth}

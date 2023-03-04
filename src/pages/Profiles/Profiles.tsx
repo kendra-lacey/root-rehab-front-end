@@ -10,13 +10,14 @@ interface ProfilesProps {
   profiles: Profile[];
   plants: Plant[];
   user:  User | null;
+  health: Health[]
   handleAuthEvt: ()=> void;
   handleDeletePlant: (plantId:number)=> void;
   handleHealth: (formData: HealthManagerFormData) => void;
 }
 
 const Profiles = (props: ProfilesProps): JSX.Element => {
-  const { profiles, handleAuthEvt, handleDeletePlant, plants, user} = props
+  const { profiles, handleAuthEvt, handleDeletePlant, plants, user, health} = props
 
   const getMatchingPlants = (profileId: number) => {
     return plants.filter((plant) => plant.profileId === profileId);
@@ -31,7 +32,8 @@ const Profiles = (props: ProfilesProps): JSX.Element => {
         <ProfileCard 
         key={profile.id} 
         profile={profile} 
-        user={user} 
+        user={user}
+        health={health}
         plants={getMatchingPlants(profile.id)} 
         handleAuthEvt={handleAuthEvt} 
         handleDeletePlant={handleDeletePlant}
