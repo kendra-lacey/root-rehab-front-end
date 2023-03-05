@@ -23,7 +23,7 @@ import * as healthService from './services/healthService'
 import './App.css'
 
 // types
-import { User, Profile, Plant, Health } from './types/models'
+import { User, Profile, Plant } from './types/models'
 import { HealthManagerFormData } from './types/forms'
 
 function App(): JSX.Element {
@@ -32,7 +32,6 @@ function App(): JSX.Element {
   const [user, setUser] = useState<User | null>(authService.getUser())
   const [profiles, setProfiles] = useState<Profile[]>([])
   const [plants, setPlants] = useState<Plant[]>([])
-  const [health, setHealth] = useState<Health[]>([])
 
   useEffect((): void => {
     const fetchProfiles = async (): Promise<void> => {
@@ -68,7 +67,6 @@ const handleDeletePlant = async(plantId: number): Promise<void> => {
 const handleHealth = async(formData: HealthManagerFormData): Promise<void> => {
   try {
     const updatedPlant = await healthService.setHealth(formData)
-    console.log('updatedPlant:', updatedPlant);
     setPlants(plants.map((plant) => (
       plant.id === updatedPlant.id ? updatedPlant : plant
     )))
@@ -110,7 +108,6 @@ const handleHealth = async(formData: HealthManagerFormData): Promise<void> => {
               user={user}
               profiles= {profiles}
               plants={plants}
-              health={health}
               handleAuthEvt={handleAuthEvt}
               handleDeletePlant={handleDeletePlant}
               handleHealth={handleHealth}

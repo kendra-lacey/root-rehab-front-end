@@ -17,14 +17,13 @@ interface ProfileCardProps {
   profile: Profile;
   user:  User | null;
   plants: Plant[];
-  health: Health[];
   handleAuthEvt: ()=> void;
   handleDeletePlant:(plantId:number)=> void;
   handleHealth: (formData: HealthManagerFormData) => void;
 }
 
 const ProfileCard = (props: ProfileCardProps): JSX.Element => {
-  const { profile, user, plants, health } = props
+  const { profile, user, plants} = props
 
   const [showForm, setShowForm] = useState(false)
   const [showPlants, setShowPlants] = useState(false)
@@ -55,11 +54,13 @@ const ProfileCard = (props: ProfileCardProps): JSX.Element => {
     <article>
       <img src={profilePic} alt={`${profile.name}'s avatar'`} />
       <h1>{profile.name}</h1>
-      <button onClick={toggleShowPlants}>{matchingPlants.length > 0 ? 'View  Plants ' : "No Plants to Show"}</button>
+      <button onClick={toggleShowPlants}>{matchingPlants.length > 0 ? 'View Plants' : "No Plants to Show"}</button>
       {showPlants && <PlantCard {...props} plants={matchingPlants}
     />}
     </article>
   )
 }
+
+// 
 
 export default ProfileCard

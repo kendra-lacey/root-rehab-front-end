@@ -1,5 +1,5 @@
 // types
-import { Profile, Plant, User, Health} from '../../types/models';
+import { Profile, Plant, User} from '../../types/models';
 import { HealthManagerFormData } from '../../types/forms';
 
 
@@ -10,16 +10,15 @@ interface ProfilesProps {
   profiles: Profile[];
   plants: Plant[];
   user:  User | null;
-  health: Health[]
   handleAuthEvt: ()=> void;
   handleDeletePlant: (plantId:number)=> void;
   handleHealth: (formData: HealthManagerFormData) => void;
 }
 
 const Profiles = (props: ProfilesProps): JSX.Element => {
-  const { profiles, handleAuthEvt, handleDeletePlant, plants, user, health} = props
+  const { profiles, handleAuthEvt, handleDeletePlant, plants, user} = props
 
-  const getMatchingPlants = (profileId: number) => {
+  const matchingPlants = (profileId: number) => {
     return plants.filter((plant) => plant.profileId === profileId);
   };
 
@@ -33,8 +32,7 @@ const Profiles = (props: ProfilesProps): JSX.Element => {
         key={profile.id} 
         profile={profile} 
         user={user}
-        health={health}
-        plants={getMatchingPlants(profile.id)} 
+        plants={matchingPlants(profile.id)}
         handleAuthEvt={handleAuthEvt} 
         handleDeletePlant={handleDeletePlant}
         handleHealth={props.handleHealth}

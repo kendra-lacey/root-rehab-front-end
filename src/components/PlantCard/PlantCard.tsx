@@ -14,7 +14,7 @@ interface PlantCardProps {
 }
 
 const PlantCard = (props: PlantCardProps): JSX.Element=> {
-  const { plants, user, profile, handleDeletePlant} = props
+  const { plants, user, profile, handleDeletePlant, } = props
   return (
     <div>
       {plants.map((plant) => (
